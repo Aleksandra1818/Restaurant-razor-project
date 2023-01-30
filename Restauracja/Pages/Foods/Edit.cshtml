@@ -1,0 +1,62 @@
+﻿@page "{id:int}"
+@model Restauracja.Pages.Foods.EditModel
+
+@{
+    ViewData["Title"] = "Edycja";
+}
+
+<h1>Edytuj pozycję z menu</h1>
+<br/>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Food.Id" />
+            <div class="form-group">
+                <label asp-for="Food.Name" class="control-label"></label>
+                <input asp-for="Food.Name" class="form-control" />
+                <span asp-validation-for="Food.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food.Description"></label>
+                <input asp-for="Food.Description" class="form-control" />
+                <span asp-validation-for="Food.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food.Category"></label>
+                <input asp-for="Food.Category" class="form-control" />
+                <span asp-validation-for="Food.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food.Price" class="control-label"></label>
+                <input type="number" step="0.01" min="1" asp-for="Food.Price" class="form-control" />
+                <span asp-validation-for="Food.Price" class="text-danger"></span>
+            </div>
+            <br />Rodzaj:<br />
+            <div class="form-group">
+                <input asp-for="Food.IsVegan" />
+                <label asp-for="Food.IsVegan"></label> &nbsp&nbsp
+                <input asp-for="Food.IsVegetarian" />
+                <label asp-for="Food.IsVegetarian"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="Food.IsLactoseFree" />
+                <label asp-for="Food.IsLactoseFree"></label> &nbsp&nbsp
+                <input asp-for="Food.IsGlutenFree" />
+                <label asp-for="Food.IsGlutenFree"></label>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit">Zapisz</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="return">
+    <button><a asp-page="Index">Powrót do Menu</a></button>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

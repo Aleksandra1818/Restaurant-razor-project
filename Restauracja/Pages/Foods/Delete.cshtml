@@ -1,0 +1,55 @@
+﻿@page "{id:int}"
+@model Restauracja.Pages.Foods.DeleteModel
+
+@{
+    ViewData["Title"] = "Usuwanie";
+}
+
+<h1>Usuwanie pozycji z menu</h1>
+<br/>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <input type="hidden" asp-for="Food.Id" />
+        <div class="form-group">
+            <label asp-for="Food.Name" class="control-label"></label>
+            <input asp-for="Food.Name" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Food.Description"></label>
+            <input asp-for="Food.Description" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Food.Category"></label>
+            <input asp-for="Food.Category" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Food.Price" class="control-label"></label>
+            <input type="number" asp-for="Food.Price" class="form-control" readonly />
+        </div>
+        <br />Rodzaj:<br />
+        <div class="form-group">
+            @Html.DisplayFor(model => model.Food.IsVegan)
+            <label asp-for="Food.IsVegan"></label> &nbsp&nbsp
+            @Html.DisplayFor(model => model.Food.IsVegetarian)
+            <label asp-for="Food.IsVegetarian"></label>
+        </div>
+        <div class="form-group">
+            @Html.DisplayFor(model => model.Food.IsLactoseFree)
+            <label asp-for="Food.IsLactoseFree"></label> &nbsp&nbsp
+            @Html.DisplayFor(model => model.Food.IsGlutenFree)
+            <label asp-for="Food.IsGlutenFree"></label>
+        </div>
+        <br />
+    </div>
+</div>
+<br />
+<p style="text-align:center;color:darkred; font-size:20px">Czy na pewno chcesz usunąć? Tej operacji nie będzie można cofnąć!</p>
+<form method="post" style="display: flex;flex-direction: row;justify-content: center" >
+    <input type="hidden" asp-for="Food.Id" />
+    <button type="submit" value="Delete" class="btn btn-danger">Usuń</button>&nbsp&nbsp
+</form>
+<div class="return">
+    <button><a asp-page="Index">Powrót do Menu</a></button>
+</div>
+

@@ -1,0 +1,139 @@
+html {
+    font-size: 14px;
+    font-family: Verda;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    font-family: Verda;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.nav-link{
+    font-size:20px;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Verda;
+    background: linear-gradient(to bottom, rgba(255,255,255,255) 0%, rgba(233,195,124,1) 100%);
+}
+
+.signs
+{
+    width:30px;
+    height:30px;
+    padding:2px;
+}
+
+.signs-action {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+}
+
+.signs-action:hover{
+    transform: scale(1.15,1.15);
+}
+
+.table 
+{
+    font-family: Verda;
+    font-size:17px!important;
+    border:none;
+}
+
+tr, td, th {
+    border: none;
+}
+
+.food_name {
+    font-size: 24px;
+    font-style: italic;
+}
+
+.price_view 
+{
+    font-weight:600;
+}
+
+.desc_full>td{
+    padding-bottom:3em;
+}
+
+h1 {
+    text-align:center;
+    font-style:italic
+}
+
+button > a {
+    text-decoration: none;
+    color: white;
+}
+
+button>a:visited {
+    text-decoration: none;
+}
+
+button>a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+button>a:active {
+    text-decoration: none;
+}
+
+button {
+    border-radius: 10px / 50px;
+    border: 1px solid black;
+    background-color: saddlebrown;
+    text-decoration: none;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+button:hover
+{
+    transform: scale(1.15,1.15);
+}
+
+a:hover {
+    transform: scale(1.15,1.15);
+}
+
+.row{
+    display:flex;
+    flex-direction:column;
+    align-content: center;
+}
+
+.return{
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+
+.control-label-1:after {
+    content: " *";
+    color: red;
+}
+
+.form-control-d:hover {
+    cursor: pointer;
+}
+
+select{
+    width:200px;
+    height:30px;
+}

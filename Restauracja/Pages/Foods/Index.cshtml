@@ -1,0 +1,92 @@
+﻿@page
+@model Restauracja.Pages.Foods.IndexModel
+
+@{
+    ViewData["Title"] = "Menu";
+}
+<div style="display: flex;
+    flex-direction: row;
+    justify-content: flex-end">
+    <button type="button"><a asp-page="Create">+DODAJ</a></button>
+</div>
+<h1>Menu</h1>
+<br>
+<form>
+    <p style="display: flex;justify-content: center">
+        Wyszukaj danie:&nbsp&nbsp
+        <select asp-for="FoodCategory" asp-items="Model.Categories">
+            <option value="">Wszystkie Dania</option>
+        </select>
+        <input style="width:400px" type="text" asp-for="SearchString" placeholder="Wpisz nazwę dania lub fragment opisu" />&nbsp&nbsp
+        <button type="submit" >Szukaj</button>
+    </p>
+</form>
+<br/>
+<br/>
+<img class="signs" src="~/img/vegan.png" alt="vege" />-wegańskie&nbsp&nbsp
+<img class="signs" src="~/img/no-meat.png" alt="vegetarian" />-wegetariańskie&nbsp&nbsp
+<img class="signs" src="~/img/lactose-free.png" alt="lactose free" />-bez laktozy&nbsp&nbsp
+<img class="signs" src="~/img/gluten-free.png" alt="gluten free" />-bez glutenu
+<br/>
+<br/>
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Food) {
+        <tr>
+            <td class="food_name">
+                @Html.DisplayFor(modelItem => item.Name)
+
+                @if (item.IsVegan.Equals(true))
+                {
+                    <img class="signs" src="~/img/vegan.png" alt="vege" />
+                }
+                @if (item.IsGlutenFree.Equals(true))
+                {
+                    <img class="signs" src="~/img/gluten-free.png" alt="gluten free" />
+                }
+                @if (item.IsLactoseFree.Equals(true))
+                {
+                    <img class="signs" src="~/img/lactose-free.png" alt="lactose free" />
+                }
+                @if (item.IsVegetarian.Equals(true) && item.IsVegan.Equals(true)==false)
+                {
+                    <img class="signs" src="~/img/no-meat.png" alt="vegetarian" />
+                }
+            </td>
+            <td class="price_view">
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><img class="signs-action" src="~/img/edit.png" alt="edit" title="Edytuj pozycję" /></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><img class="signs-action" src="~/img/view-details.png" alt="details" title="Zobacz pozycję"/></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><img class="signs-action" src="~/img/delete.png" alt="delete" title="Usuń pozycję" /></a>
+                </td>
+        </tr>
+        <tr class="desc_full">
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
